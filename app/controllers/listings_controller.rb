@@ -25,6 +25,7 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
+    @listing.model_id = current_model.id
 
     respond_to do |format|
       if @listing.save
