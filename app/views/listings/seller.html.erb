@@ -1,5 +1,5 @@
 <div class="center">
-<div class="row">
+  <div class="row">
   <% @listings.each do |listing| %>
     <div class="col-md-3">
       <div class="thumbnail">
@@ -8,11 +8,15 @@
           <h3><%= listing.name %></h3>
           <p><%= number_to_currency(listing.price) %></p>
           <p><%= "Sold by: #{listing.model.name}" %></p>
+          <% if (model_signed_in?) && (current_model == listing.model) %>
+            <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
+            <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+          <% end %> 
         </div>
       </div>
     </div>
   <% end %>
-</div>
+  </div>
 </div>
 
 

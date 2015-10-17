@@ -22,6 +22,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% if model_signed_in? %>
+              <li><%= link_to "Manage Listings", seller_path %></li>
               <li><%= link_to "Edit Profile", edit_model_registration_path %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Sign Out", destroy_model_session_path, method: :delete %></li>

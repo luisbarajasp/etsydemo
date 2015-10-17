@@ -1,11 +1,16 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_model!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_model!, only: [:seller, :new, :create, :edit, :update, :destroy]
   before_action :check_model, only: [:edit, :update, :destroy]
   # GET /listings
   # GET /listings.json
+
+  def seller
+    @listings = Listing.where(model: current_model).order("created_at DESC")
+  end
+
   def index
-    @listings = Listing.all
+    @listings = Listing.all.order("created_at DESC")
   end
 
   # GET /listings/1
