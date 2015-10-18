@@ -3,11 +3,11 @@ class OrdersController < ApplicationController
   before_action :authenticate_model!
 
   def sales
-    @order = Order.all.where(seller: current_model).order("created_at DESC")
+    @orders = Order.all.where(seller: current_model).order("created_at DESC")
   end
 
   def purchases
-    @order = Order.all.where(buyer: current_model).order("created_at DESC")
+    @orders = Order.all.where(buyer: current_model).order("created_at DESC")
   end
   # GET /orders/new
   def new

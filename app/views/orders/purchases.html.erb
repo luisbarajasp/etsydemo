@@ -10,7 +10,7 @@
     <th class="center">Seller</th>
     <th class="center">Date Purchased</th>
   </tr>
-  <% if @orders %>
+  <% if (@orders != nil) %>
     <% @orders.each do |order| %>
       <tr>
         <td class="center"><%= image_tag order.listing.image.url(:thumb) %></td>

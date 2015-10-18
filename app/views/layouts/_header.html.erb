@@ -18,10 +18,10 @@
         <li><%= link_to "Contact", pages_contact_path %></li>
       </ul>
        <ul class="nav navbar-nav navbar-right">
+        <% if model_signed_in? %>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_model.name %><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <% if model_signed_in? %>
               <li><%= link_to "Sales History", sales_path %></li>
               <li><%= link_to "Purchase History", purchases_path %></li>
               <li role="separator" class="divider"></li>
@@ -29,11 +29,11 @@
               <li><%= link_to "Edit Profile", edit_model_registration_path %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Sign Out", destroy_model_session_path, method: :delete %></li>
-            <% else %>
+          </ul>
+        <% else %>
               <li><%= link_to "Sign Up", new_model_registration_path %></li>
               <li><%= link_to "Sign In", new_model_session_path %></li>
-            <% end %>
-          </ul>
+        <% end %>
        </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
