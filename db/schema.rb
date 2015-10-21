@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017235600) do
+ActiveRecord::Schema.define(version: 20151021010200) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20151017235600) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "recipient"
   end
 
   add_index "models", ["email"], name: "index_models_on_email", unique: true
